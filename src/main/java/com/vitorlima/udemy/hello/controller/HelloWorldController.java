@@ -1,10 +1,9 @@
-package com.vitorlima.udemy.hello;
+package com.vitorlima.udemy.hello.controller;
 
-import com.vitorlima.udemy.hello.service.HelloWorldService;
+import com.vitorlima.udemy.hello.service.MyService;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
 @Singleton
@@ -12,9 +11,9 @@ import jakarta.inject.Singleton;
 public class HelloWorldController {
 
 
-    private final HelloWorldService service;
+    private final MyService service;
 
-    public HelloWorldController(HelloWorldService service) {
+    public HelloWorldController(MyService service) {
         this.service = service;
     }
 
