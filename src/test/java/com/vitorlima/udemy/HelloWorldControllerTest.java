@@ -22,7 +22,7 @@ class HelloWorldControllerTest {
 
         String response = httpClient.toBlocking().retrieve("/hello");
 
-        assertEquals("Hello world!", response);
+        assertEquals("Hello from service!", response);
 
     }
 
@@ -32,7 +32,7 @@ class HelloWorldControllerTest {
        var response = httpClient.toBlocking().exchange("/hello", String.class);
 
       assertEquals(HttpStatus.OK, response.getStatus());
-      assertEquals("Hello world!", response.getBody().get());
+      assertEquals("Hello from service!", response.getBody().get());
 
    }
 
