@@ -11,8 +11,12 @@ import jakarta.inject.Singleton;
 @Controller("/hello")
 public class HelloWorldController {
 
-    @Inject
-    private HelloWorldService service;
+
+    private final HelloWorldService service;
+
+    public HelloWorldController(HelloWorldService service) {
+        this.service = service;
+    }
 
     @Get(processes = MediaType.TEXT_PLAIN)
     public String helloWorld(){
