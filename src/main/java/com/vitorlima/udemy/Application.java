@@ -1,10 +1,22 @@
 package com.vitorlima.udemy;
 
+import com.vitorlima.udemy.hello.service.HelloMicronautService;
+import com.vitorlima.udemy.hello.service.HelloWorldService;
 import io.micronaut.runtime.Micronaut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Application {
 
+    private static final Logger LOG = LoggerFactory.getLogger(Application.class);
+
     public static void main(String[] args) {
-        Micronaut.run(Application.class, args);
+        var context = Micronaut.run(Application.class, args);
+
+        LOG.debug("Message from service: {}",
+        context.getBean(HelloWorldService.class).helloFromService());
+
+        LOG.debug("Message from service: {}",
+                context.getBean(HelloMicronautService.class).helloFromService());
     }
 }
